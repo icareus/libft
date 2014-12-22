@@ -6,11 +6,11 @@
 /*   By: lefebvre <lefebvre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/22 19:24:47 by lefebvre          #+#    #+#             */
-/*   Updated: 2014/12/22 19:48:00 by lefebvre         ###   ########.fr       */
+/*   Updated: 2014/12/22 20:24:30 by lefebvre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 t_list		*ft_lst_push(t_list *first, void *item)
 {
@@ -30,6 +30,6 @@ t_list		*ft_lst_push(t_list *first, void *item)
 		tmp->next = malloc(sizeof(t_list));
 		tmp->next->data = item;
 		tmp->next->next = NULL;
-		return (first);
 	}
+	return (first);
 }

@@ -6,17 +6,17 @@
 /*   By: lefebvre <lefebvre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/22 19:49:45 by lefebvre          #+#    #+#             */
-/*   Updated: 2014/12/22 19:59:56 by lefebvre         ###   ########.fr       */
+/*   Updated: 2014/12/22 20:38:07 by lefebvre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	ft_lst_rec_free(t_list *first)
 {
-	if (first->next)
+	if (first)
 	{
 		ft_lst_rec_free(first->next);
-		free(first->next);
+		free(first);
 	}
 }
