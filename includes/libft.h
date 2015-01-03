@@ -83,6 +83,7 @@ int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
 void				ft_lst_foreach(t_list *first, void (*f)());
+void				*ft_lst_get_index_data(t_list *first, int i);
 t_list				*ft_lst_push(t_list *first, void *data);
 void				ft_lst_rec_free(t_list *first);
 int					ft_toupper(int c);
