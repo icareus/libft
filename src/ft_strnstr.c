@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/28 04:52:28 by abarbaro          #+#    #+#             */
-/*   Updated: 2014/10/02 13:39:53 by abarbaro         ###   ########.fr       */
+/*   Created: 2013/11/29 21:14:16 by abarbaro          #+#    #+#             */
+/*   Updated: 2015/01/03 21:43:23 by abarbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	int		i;
-	char	*r;
+	size_t		i;
+	size_t		c;
 
-	r = NULL;
 	i = 0;
-	while (s[i])
+	c = 0;
+	if (!*s2)
+		return ((char*)s1);
+	while (s1[i] && i < n && c + i <= n)
 	{
-		if (s[i] == (char)c)
-			return ((r = ((char *)(s + i))));
-		i++;
+		if (!s2[c])
+			return ((char*)s1 + i);
+		else if (s2[c] == s1[i + c])
+			c++;
+		else
+		{
+			c = 0;
+			i++;
+		}
 	}
-	if (s[i] == (char)c)
-		r = ((char *)(s + i));
-	return (r);
+	return (NULL);
 }

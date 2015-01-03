@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/26 17:59:04 by abarbaro          #+#    #+#             */
-/*   Updated: 2014/10/02 13:48:23 by abarbaro         ###   ########.fr       */
+/*   Created: 2013/11/28 04:52:28 by abarbaro          #+#    #+#             */
+/*   Updated: 2015/01/03 21:46:02 by abarbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *s1, const void *s2, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t		c;
-	char		*ret;
+	int		i;
 
-	c = 0;
-	ret = malloc(sizeof(char) * n);
-	while (c <= n)
+	i = ft_strlen(s);
+	while (i)
 	{
-		*(ret + c) = *(char*)(s2 + c);
-		c++;
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
+		i--;
 	}
-	c = 0;
-	while (c <= n)
-	{
-		*(char*)(s1 + c) = *(char*)(ret + c);
-		c++;
-	}
-	ft_memdel((void **)&ret);
-	return (s1);
+	if (s[i] == (char)c)
+		return ((char *)(s + i));
+	return (NULL);
 }

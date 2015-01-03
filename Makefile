@@ -6,15 +6,16 @@
 #    By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/30 05:29:40 by abarbaro          #+#    #+#              #
-#    Updated: 2014/09/17 02:40:28 by abarbaro         ###   ########.fr        #
+#    Updated: 2015/01/03 18:32:25 by abarbaro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 NAME = libft.a
-SRCDIR = ./includes/
-SRCFIL = $(shell ls includes | grep "\.c")
+SRCDIR = ./src/
+HEADIR = ./includes/
+SRCFIL = $(shell ls $(SRCDIR) | grep "\.c")
 SRC = $(addprefix $(SRCDIR),$(SRCFIL))
 ODIR = ./OBJECTS/
 SRCO = $(SRCFIL:.c=.o)
@@ -37,7 +38,7 @@ $(NAME): objects
 objects:
 	@$(BLU)
 	@echo "Making objects..."
-	@$(CC) $(CFLAGS) -c $(SRC)
+	@$(CC) $(CFLAGS) -c $(SRC) -I $(HEADIR)
 	@mkdir -p $(ODIR)
 	@mv $(SRCO) $(ODIR)
 	@$(WHT)

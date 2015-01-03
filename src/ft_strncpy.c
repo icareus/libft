@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/30 06:44:18 by abarbaro          #+#    #+#             */
-/*   Updated: 2014/10/02 14:17:11 by abarbaro         ###   ########.fr       */
+/*   Created: 2013/11/28 01:13:18 by abarbaro          #+#    #+#             */
+/*   Updated: 2015/01/03 20:34:26 by abarbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+char	*ft_strncpy(char *s1, const char *s2, size_t n)
 {
-	size_t	i;
+	size_t		i;
 
-	i = 0;
-	while (s1[i] || s2[i])
+	if (s1 && s2)
 	{
-		if (s1[i] != s2[i])
-			return ((int)((s1[i]) - (s2[i])));
-		i++;
+		i = 0;
+		while (i < n)
+		{
+			s1[i] = s2[i];
+			i++;
+		}
+		s1[i] = s2[i];
 	}
-	return (0);
+	return (s1);
 }

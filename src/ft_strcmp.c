@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/26 21:37:45 by abarbaro          #+#    #+#             */
-/*   Updated: 2014/10/02 13:47:33 by abarbaro         ###   ########.fr       */
+/*   Created: 2013/11/30 06:44:18 by abarbaro          #+#    #+#             */
+/*   Updated: 2015/01/03 20:23:18 by abarbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	void	*ptr;
+	size_t	i;
 
-	ptr = (char *)s;
-	while (n)
+	i = 0;
+	while ((s1 && s2) && (s1[i] || s2[i]))
 	{
-		if (*(char *)(ptr) == (char)c)
-			return (ptr);
-		ptr++;
-		n--;
+		if (s1[i] != s2[i])
+		{
+			if (((s1[i]) - (s2[i])) < -127)
+				return (1);
+			return ((int)((s1[i]) - (s2[i])));
+		}
+		i++;
 	}
-	return (NULL);
+	return (0);
 }
