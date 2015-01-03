@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarbaro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/20 06:26:05 by abarbaro          #+#    #+#             */
-/*   Updated: 2014/10/02 13:33:15 by abarbaro         ###   ########.fr       */
+/*   Updated: 2015/01/04 00:57:53 by abarbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,27 @@
 char	*ft_strtrim(char const *s)
 {
 	char		*trim;
-	size_t		start_offset;
-	size_t		end_offset;
+	size_t		prelen;
+	size_t		postlen;
 	size_t		len;
 
-	len = ft_strlen(s);
-	start_offset = 0;
-	end_offset = 0;
-	while (start_offset < len && ft_strchr(" \t\n", s[start_offset]))
-		start_offset++;
-	while (end_offset < len && ft_strchr(" \t\n", s[len - end_offset - 1]))
-		end_offset++;
-	trim = ft_strsub(s, start_offset, len - (start_offset + end_offset));
+	if (!s)
+		return (NULL);
+	len = 0;
+	prelen = 0;
+	postlen = 0;
+	while (s[len] && ft_strchr(" \t\n", s[len]))
+		len++;
+	prelen = len;
+	while (s[len])
+	{
+		if (ft_strchr(" \t\n", s[len]))
+			postlen++;
+		else if (!ft_strchr(" \t\n", s[len]))
+			postlen = 0;
+		len++;
+	}
+	trim = ft_strsub(s, prelen, len - postlen - prelen);
+	len = -1;
 	return (trim);
 }

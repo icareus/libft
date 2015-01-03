@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarbaro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/18 00:08:41 by abarbaro          #+#    #+#             */
-/*   Updated: 2014/11/18 00:15:14 by abarbaro         ###   ########.fr       */
+/*   Updated: 2015/01/03 22:59:48 by abarbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ int		ft_count_words(const char *str, char c)
 	words = 0;
 	while (str[i])
 	{
-		if (str[i] == c)
-			i++;
-		if (i == 0 ? str[i] != c : (str[i - 1] == c && str[i] == c))
-			words++;
+		if (str[i] != c)
+		{
+			if (!i || (i && str[i] && str[i - 1] == c))
+				words++;
+		}
 		i++;
 	}
 	return (words);

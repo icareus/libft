@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abarbaro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/20 07:52:02 by abarbaro          #+#    #+#             */
-/*   Updated: 2014/11/18 00:19:44 by abarbaro         ###   ########.fr       */
+/*   Updated: 2015/01/03 23:53:52 by abarbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,29 @@
 char				**ft_strsplit(const char *s, char c)
 {
 	char	**ret;
+	int		wc;
 	int		i;
-	int		x;
-	int		y;
+	int		cursor;
+	int		sublen;
 
-	ret = malloc(sizeof(char *) * ft_count_words(s, c) + 1);
+	if (!s)
+		return (NULL);
+	wc = ft_count_words(s, c);
+	if (!(ret = malloc(sizeof(char *) * wc + 1)))
+		return (NULL);
 	i = 0;
-	y = 0;
-	x = 0;
-	ret[x] = NULL;
-	while (s[i])
+	cursor = 0;
+	while (i < wc)
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] && (i == 0 || (s[i] != c && s[i - 1] == c)))
-		{
-			x++;
-			while (s[i + y] != c)
-				y++;
-			ret[x - 1] = ft_strsub(s, i, y);
-			i += y;
-			y = 0;
-		}
+		sublen = 0;
+		while (s[cursor] && s[cursor] == c)
+			cursor++;
+		while (s[cursor + sublen] && s[cursor + sublen] != c)
+			sublen++;
+		ret[i] = ft_strsub(s, cursor, sublen);
+		cursor += sublen;
+		i++;
 	}
+	ret[i] = NULL;
 	return (ret);
 }
