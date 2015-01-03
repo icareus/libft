@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/10 15:47:26 by abarbaro          #+#    #+#             */
-/*   Updated: 2015/01/03 22:12:42 by abarbaro         ###   ########.fr       */
+/*   Created: 2015/01/03 21:48:06 by abarbaro          #+#    #+#             */
+/*   Updated: 2015/01/03 21:48:26 by abarbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	ft_putchar_fd(char c, int fd)
 {
-	char		*new;
-
-	if (!(new = (char *)malloc(sizeof(char) * size)))
-		return (NULL);
-	while (size)
-	{
-		size--;
-		new[size] = '\0';
-	}
-	return (new);
+	write(fd, &c, 1);
 }

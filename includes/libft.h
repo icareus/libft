@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lefebvre <lefebvre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/27 01:46:16 by abarbaro          #+#    #+#             */
-/*   Updated: 2014/12/25 05:27:12 by lefebvre         ###   ########.fr       */
+/*   Updated: 2015/01/03 21:50:51 by abarbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ void				*ft_memset(void *b, int c, size_t len);
 int					ft_nbrlen(int i);
 int					ft_printf(char *form, ...);
 void				ft_putchar(char c);
+void				ft_putchar_fd(char c, int fd);
 int					ft_putflt(float f);
 void				ft_putnbr(int i);
+void				ft_putnbr_fd(int i, int fd);
 void				ft_putendl(char *str);
 void				ft_putendl_fd(char *str, int fd);
 int					ft_putstr(const char *s);
