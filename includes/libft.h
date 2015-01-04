@@ -6,7 +6,7 @@
 /*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/27 01:46:16 by abarbaro          #+#    #+#             */
-/*   Updated: 2015/01/03 21:50:51 by abarbaro         ###   ########.fr       */
+/*   Updated: 2015/01/04 02:35:29 by abarbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@
 
 typedef struct		s_list
 {
-	void			*data;
+	void			*content;
+	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
 
@@ -84,8 +85,14 @@ int					ft_isdigit(int c);
 int					ft_isalnum(int c);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
-void				ft_lst_foreach(t_list *first, void (*f)());
+void				ft_lstadd(t_list **lst, t_list *new);
+void				ft_lstdel(t_list **lst, void (*del)(void *, size_t));
+void				ft_lstdelone(t_list **lst, void (*del)(void *, size_t));
+t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_list				*ft_lstnew(void const *content, size_t content_size);
+void				*ft_memalloc(size_t size);
 void				*ft_lst_get_index_data(t_list *first, int i);
+void				ft_lstiter(t_list *first, void (*f)());
 t_list				*ft_lst_push(t_list *first, void *data);
 void				ft_lst_rec_free(t_list *first);
 int					ft_toupper(int c);
