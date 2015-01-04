@@ -6,7 +6,7 @@
 /*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/18 00:08:41 by abarbaro          #+#    #+#             */
-/*   Updated: 2015/01/03 22:59:48 by abarbaro         ###   ########.fr       */
+/*   Updated: 2015/01/04 01:06:28 by abarbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int		ft_count_words(const char *str, char c)
 
 	i = 0;
 	words = 0;
+	if (!str)
+		return (0);
 	while (str[i])
 	{
 		if (str[i] != c)

@@ -6,7 +6,7 @@
 /*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/20 07:52:02 by abarbaro          #+#    #+#             */
-/*   Updated: 2015/01/03 23:53:52 by abarbaro         ###   ########.fr       */
+/*   Updated: 2015/01/04 01:07:37 by abarbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@ char				**ft_strsplit(const char *s, char c)
 	int		cursor;
 	int		sublen;
 
-	if (!s)
-		return (NULL);
 	wc = ft_count_words(s, c);
-	if (!(ret = malloc(sizeof(char *) * wc + 1)))
+	ret = malloc(sizeof(char *) * wc + 1);
+	if (!s || !ret)
 		return (NULL);
 	i = 0;
 	cursor = 0;
