@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_push.c                                      :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/22 19:24:47 by lefebvre          #+#    #+#             */
-/*   Updated: 2015/01/04 01:13:25 by abarbaro         ###   ########.fr       */
+/*   Created: 2015/01/04 01:16:41 by abarbaro          #+#    #+#             */
+/*   Updated: 2015/01/04 02:35:46 by abarbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-t_list		*ft_lst_push(t_list *first, void *item)
+t_list		*ft_lstnew(void const *content, size_t content_size)
 {
-	t_list		*tmp;
+	t_list		*new;
 
-	if (!first)
-	{
-		first = malloc(sizeof(t_list));
-		first->content = item;
-		first->next = NULL;
-	}
-	else
-	{
-		tmp = first;
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = malloc(sizeof(t_list));
-		tmp->next->content = item;
-		tmp->next->next = NULL;
-	}
-	return (first);
+	if (!(new = malloc(sizeof(t_list))))
+		return (NULL);
+	new->content = content ? ft_memdup((void *)content, content_size) : NULL;
+	new->content_size = new->content ? content_size : 0;
+	new->next = NULL;
+	return (new);
 }
