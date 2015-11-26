@@ -56,6 +56,7 @@ void				ft_putnbr_fd(int i, int fd);
 void				ft_putendl(char *str);
 void				ft_putendl_fd(char *str, int fd);
 int					ft_putstr(const char *s);
+int					ft_puterr(const char *s);
 void				ft_putstr_fd(const char *s, int fd);
 void				*ft_strjoin(const char *s1, const char *s2);
 size_t				ft_strlen(const char *s);
