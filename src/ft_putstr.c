@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_puterr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include <unistd.h>
 
-int		ft_putstr(const char *s)
+int		ft_puterr(const char *s)
 {
 	int		i;
 
@@ -21,6 +21,6 @@ int		ft_putstr(const char *s)
 		return (-1);
 	while (s[i])
 		i++;
-	write(1, s, i);
+	write(2, s, i);
 	return (i);
 }
