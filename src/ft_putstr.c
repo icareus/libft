@@ -21,6 +21,6 @@ int		ft_putstr(const char *s)
 		return (-1);
 	while (s[i])
 		i++;
-	write(2, s, i);
+	write(1, s, i);
 	return (i);
 }
