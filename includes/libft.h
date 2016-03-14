@@ -6,7 +6,7 @@
 /*   By: abarbaro <abarbaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/27 01:46:16 by abarbaro          #+#    #+#             */
-/*   Updated: 2015/01/04 02:35:29 by abarbaro         ###   ########.fr       */
+/*   Updated: 2016/03/14 16:34:55 by abarbaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ char				*ft_strdup(const char *s1);
 char				*ft_strcpy(char *s1, const char *s2);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strncpy(char *s1, const char *s2, size_t n);
+int					ft_strnchr(const char *s, int n, int c);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strncat(char *s1, const char *s2, size_t n);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
